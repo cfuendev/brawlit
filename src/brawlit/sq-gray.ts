@@ -13,18 +13,28 @@ import { customElement, property } from 'lit/decorators.js'
 @customElement('brawlit-sq-gray')
 export class BrawLitSqGray extends LitElement {
 
-  @property({type: Number})
-  fontsize: number = 60;
+  @property({type: String})
+  imgsrc: String = "https://raw.githubusercontent.com/overwolfmobile/brawl-stars-assets/master/assets/game-modes/event_mode_raid%403x.png";
 
   @property({type: Number})
-  bordersize: number = this.fontsize/20;
+  fontsize: number = 20;
+
+  @property({type: Number})
+  bordersize: number = this.fontsize/10;
 
   render() {
     return html`
       <div class="brawl-btn-cont" style="
         max-width: ${this.fontsize*5}px;
-        max-height: ${this.fontsize*2.2}px;
+        max-height: ${this.fontsize*2.6}px;
       ">
+      <img src="${this.imgsrc}" style="
+            position: absolute;
+            z-index: 1;
+            top: -17px;
+            left: 25px;
+            width: ${this.fontsize*2.5}px;
+            ">
         <div class="brawl-text" style="
           font-size: ${this.fontsize}px;
           filter: drop-shadow( 0 ${this.fontsize/13}px 0 black );
@@ -37,7 +47,7 @@ export class BrawLitSqGray extends LitElement {
         </div>
         <div class="brawl-btn" style="
           width: ${this.fontsize*5}px;
-          height: ${this.fontsize*2.2}px;
+          height: ${this.fontsize*2.6}px;
           border: ${this.bordersize}px solid;
         ">
           <div style="
